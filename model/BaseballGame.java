@@ -14,6 +14,17 @@ public class BaseballGame {
         generateKey();
     }
 
+    public void setGuess(int pos, int value)
+    {
+        assert 0 <= pos && pos < 3 : "setGuess out of range in position" ;
+        guess[pos] = value;
+    }
+
+    public void computeBallsStrikes()
+    {
+        
+    }
+
     private void generateKey()
     {
         Random r = new Random();
