@@ -14,6 +14,13 @@ public class BaseballGame {
         generateKey();
     }
 
+    public BaseballGame(int k0, int k1, int k2)
+    {
+        key[0] = k0;
+        key[1] = k1;
+        key[2] = k2;
+    }
+
     public void setGuess(int pos, int value)
     {
         assert 0 <= pos && pos < 3 : "setGuess out of range in position" ;
@@ -22,7 +29,21 @@ public class BaseballGame {
 
     public void computeBallsStrikes()
     {
-        
+        strikeCount = 0;
+        for(int i = 0; i < 3 ; i++)
+        {
+            if(key[i] == guess[i]) ++ strikeCount;
+        }
+
+        ballCount = 0;
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            for (int n = 0; n < 3; n++)
+            {
+                if(i == n) continue;
+                if(key[i] == guess[n]) ballCount++;
+            }
+        }
     }
 
     private void generateKey()
@@ -41,5 +62,11 @@ public class BaseballGame {
     public int[] getKey()
     {
         return key;
+    }
+    public int getBallCount() {
+        return ballCount;
+    }
+    public int getStrikeCount() {
+        return strikeCount;
     }
 }
