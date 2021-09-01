@@ -13,6 +13,5 @@ public class Main {
         menu.init();
         window.pack();
         window.setVisible(true);
-
     }
 }
